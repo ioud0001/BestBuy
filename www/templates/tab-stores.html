@@ -1,0 +1,30 @@
+<ion-view view-title="Nearby Stores">
+  <ion-content class="padding">
+    <div id="canvasdiv">
+    <p>This page will display a list of stores closest to you, or by a city.</p>
+    <div class="bar bar-header item-input-inset">
+    <label class="item-input-wrapper">
+        	<input type="search" 
+                   placeholder="Search" 
+                   ng-model="data.searchCity"
+                   value="{{data.searchCity}}"/>
+     </label>
+     <button class="button button-clear ion-ios-search-strong"  ng-click="searchCity(data.searchCity)"></button>
+    </div>
+        <ion-list-item>
+        <ul class="list">
+        <li class="list card item" ng-repeat="store in allStores">
+            {{ store.longName }}
+            <br />
+            Address: {{ store.address }}
+            <br />Store Hours: {{ store.hoursAmPm }}<br />GMT Offset: {{ store.gmtOffset }} hours
+            <br />Phone Number: {{ store.phone }}
+            </li>
+        </ion-list-item>
+
+	
+    </div>
+        
+  </ion-content>
+      <div class="bar bar-header bar-energized ion-information-circled">Warnings: {{ allStores.warnings }}</div>
+</ion-view>

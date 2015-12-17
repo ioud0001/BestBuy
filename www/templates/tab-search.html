@@ -1,0 +1,40 @@
+<ion-view view-title="Search">
+  <ion-content class="padding">
+    <div class="bar bar-header item-input-inset">
+    <label class="item-input-wrapper">
+        	<input type="search" 
+                   placeholder="Search" 
+                   ng-model="data.search"
+                   value="{{data.search}}"/>
+     </label>
+     <button class="button button-clear ion-ios-search-strong"  ng-click="search(data.search)"></button>
+    </div>
+      
+    <!--
+    
+              <ion-list-item>
+        <ul class="list">
+        <li class="list card item" ng-repeat="product in allProducts.products">
+            <!-- try to use ng-src='{{product.image}}' 
+            <img src='{{product.image}}' alt='{{product.name}}' />
+            {{ product.name }}<br />
+           SKU:{{ product.sku}}<br />
+           ${{ product.salePrice}}</li>
+                  </ul>
+        </ion-list-item>
+                  
+    -->
+    
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" does-continue="true" auto-play="true" slide-interval="4000">
+  <ion-slide ng-repeat="product in allProducts track by $index">
+      <div class="div blue">
+      <img ng-src="{{product.image}}" /><br />
+      {{product.name}}<br />
+      SKU: {{product.sku}}<br />
+      ${{product.salePrice}}</p>
+          </div>
+  </ion-slide>
+</ion-slide-box>
+
+  </ion-content>
+</ion-view>
